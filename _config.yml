@@ -1,6 +1,9 @@
 title: Tudo Que Testei
 description: Experimentos, ferramentas, receitas, livros e tudo o que resolvi testar na prática.
-author: Duck
+author: ConnectLab
+
+baseurl: "/tudoquetestei"
+url: "https://connectlab1.github.io"
 
 theme: minima
 
