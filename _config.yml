@@ -1,29 +1,47 @@
-# Configurações Principais
+# =================================================
+# Tudo Que Testei - Configurações Globais
+# =================================================
+
+# Informações Principais do Site
 title: Tudo Que Testei
-description: Experimentos práticos, análises de ferramentas, livros e testes do dia a dia.
-author: ConnectLab
-email: contato@connectlab.ddns.net
+email: ""
+description: >-
+  Laboratório prático de documentação técnica, testes de sistemas, 
+  scripts, ferramentas de código aberto e desenvolvimento estático.
+baseurl: "/tudoquetestei" # Nome exato do repositório no GitHub
+url: "https://connectlab1.github.io" # Substitua pelo seu nome de usuário do GitHub se necessário
 
-# Caminhos base obrigatórios para subpasta no GitHub Pages
-url: "https://connectlab1.github.io"
-baseurl: "/tudoquetestei"
+# Informações do Autor
+author:
+  name: Jean de Arruda
+  github: connectlab1
 
-# Localização e Idioma
+# Configurações de Idioma e Fuso Horário
 lang: pt-BR
 timezone: America/Sao_Paulo
 
-# Tema e Estilo
+# Tema e Plugins
 theme: minima
-
-# Plugins do GitHub Pages
 plugins:
   - jekyll-feed
   - jekyll-seo-tag
 
-# Exclusões do Build
+# Configuração de Datas (Formato Brasileiro DD/MM/YYYY)
+minima:
+  date_format: "%d/%m/%Y"
+
+# Configurações do Compilador de Sass/SCSS
+sass:
+  sass_dir: assets/css
+  style: compressed
+
+# Ignorar arquivos/pastas durante o build estático
 exclude:
   - Gemfile
   - Gemfile.lock
+  - README.md
   - node_modules
-  - vendor/
-  - .github/
+  - vendor/bundle/
+  - vendor/cache/
+  - vendor/gems/
+  - vendor/ruby/
