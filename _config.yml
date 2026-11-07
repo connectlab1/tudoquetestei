@@ -1,0 +1,9 @@
+title: Tudo Que Testei
+description: Experimentos, ferramentas, receitas, livros e tudo o que resolvi testar na prática.
+author: Duck
+
+theme: minima
+
+plugins:
+  - jekyll-feed
+  - jekyll-seo-tag
