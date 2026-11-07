@@ -1,29 +1,29 @@
-# Informações principais do site
+# Configurações Principais
 title: Tudo Que Testei
-description: Experimentos, ferramentas, receitas, livros e tudo o que resolvi testar na prática.
+description: Experimentos práticos, análises de ferramentas, livros e testes do dia a dia.
 author: ConnectLab
-email: seu-email@exemplo.com
+email: contato@connectlab.ddns.net
 
-# Caminho base obrigatório para repositórios que não estão na raiz (subpasta)
-baseurl: "/tudoquetestei"
+# Caminhos base obrigatórios para subpasta no GitHub Pages
 url: "https://connectlab1.github.io"
+baseurl: "/tudoquetestei"
 
-# Configuração de idioma e data
-lang: "pt-BR"
-timezone: "America/Sao_Paulo"
+# Localização e Idioma
+lang: pt-BR
+timezone: America/Sao_Paulo
 
-# Tema padrão limpo do Jekyll
+# Tema e Estilo
 theme: minima
 
-# Plugins recomendados para SEO e feeds automáticos
+# Plugins do GitHub Pages
 plugins:
   - jekyll-feed
   - jekyll-seo-tag
 
-# Excluir arquivos desnecessários da compilação do Jekyll
+# Exclusões do Build
 exclude:
   - Gemfile
   - Gemfile.lock
   - node_modules
-  - vendor/bundle
-  - README.md
+  - vendor/
+  - .github/
