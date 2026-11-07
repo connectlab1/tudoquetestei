@@ -1,26 +1,32 @@
 ---
 layout: page
-title: "Sobre o Projeto"
+title: "Sobre"
 permalink: /sobre/
 ---
 
-# Olá! Seja bem-vindo ao Tudo Que Testei.
+# Sobre o Tudo Que Testei 🧪
 
-Este espaço nasceu da minha mania (e necessidade) de testar as coisas antes de tirar conclusões. Cansado de comprar no escuro, baixar aplicativos duvidosos ou seguir dicas de internet sem comprovação, decidi colocar a mão na massa e documentar tudo por aqui.
+O **Tudo Que Testei** é um laboratório pessoal de experimentos práticos, análises diretas e relatos sem rodeios. 
 
-## O que você vai encontrar por aqui?
-
-O foco do blog é a **prática**. Nada de teoria vazia. Aqui os conteúdos são divididos em testes reais de:
-
-* 🛠️ **Ferramentas & Apps:** Softwares, extensões, utilitários e plataformas web.
-* 📚 **Livros & Cursos:** O que vale a pena ler/estudar e o que é perda de tempo.
-* 💡 **Métodos & Rotinas:** Experimentos de produtividade, organização e estilo de vida.
-* 🧪 **Gadgets & Utilidades:** Impressões sinceras sobre produtos e itens do dia a dia.
+A ideia do blog é simples: testar ferramentas, softwares, metodologias, livros, dispositivos e utilitários do dia a dia no mundo real, tirando conclusões baseadas em uso prático.
 
 ---
 
-## Como funcionam os "Vereditos"?
+## 🎯 O que você encontra por aqui
 
-Cada artigo passa por um crivo simples: testei, usei no mundo real, apontei os prós e contras e defini se vale a pena ou não. Sem enrolação e sem viés de patrocínio.
+* **Ferramentas & Tecnologias:** Testes de plataformas web, linguagens, automações, utilitários open-source e softwares.
+* **Leituras & Conteúdo:** Análises de livros técnicos e materiais de estudo, com foco no aprendizado aplicado.
+* **Experimentos & Projetos:** Documentação de pequenos projetos, montagens de infraestrutura e testes de infra/hardware.
+* **Produtividade & Métodos:** Avaliação de rotinas, fluxos de trabalho e aplicativos de organização.
 
-Se você tem alguma sugestão de ferramenta, livro ou experimento que gostaria que eu testasse, entre em contato ou acompanhe as atualizações por aqui!
+---
+
+## 🤝 Filosofia de Avaliação
+
+1. **Uso Real:** Sem reviews baseados apenas em especificações técnicas.
+2. **Direto ao Ponto:** Pontos fortes, pontos fracos e veredito final claro.
+3. **Sem Enrolação:** Informação prática para você decidir se vale o seu tempo ou dinheiro.
+
+---
+
+*Caso queira sugerir alguma ferramenta ou experimento para ser testado, fique à vontade para entrar em contato!*
