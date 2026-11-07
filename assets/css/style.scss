@@ -1,0 +1,131 @@
+---
+---
+@import "minima";
+
+/* =================================================_
+ *  Tudo Que Testei - Tema Moderno & Dark Minimalista
+ *  ================================================= */
+
+:root {
+    --bg-color: #0b0f19;
+    --card-bg: #111827;
+    --text-main: #f3f4f6;
+    --text-muted: #9ca3af;
+    --primary-color: #38bdf8;
+    --primary-hover: #0ea5e9;
+    --border-color: #1f2937;
+    --code-bg: #030712;
+}
+
+body {
+    background-color: var(--bg-color);
+    color: var(--text-main);
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    line-height: 1.7;
+}
+
+/* Cabeçalho */
+.site-header {
+    background-color: var(--card-bg);
+    border-bottom: 1px solid var(--border-color);
+    padding: 1.25rem 0;
+}
+
+.site-title, .site-title:visited {
+    color: var(--primary-color) !important;
+    font-weight: 700;
+    font-size: 1.3rem;
+    text-decoration: none;
+}
+
+.site-nav .page-link {
+    color: var(--text-main) !important;
+    font-weight: 500;
+    margin-left: 20px;
+    transition: color 0.2s ease;
+}
+
+.site-nav .page-link:hover {
+    color: var(--primary-color) !important;
+}
+
+/* Listagem de Posts na Home */
+.post-list > li {
+    background: var(--card-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 12px;
+    padding: 1.75rem;
+    margin-bottom: 1.5rem;
+    transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+}
+
+.post-list > li:hover {
+    transform: translateY(-2px);
+    border-color: var(--primary-color);
+    box-shadow: 0 10px 30px -10px rgba(56, 189, 248, 0.15);
+}
+
+.post-link {
+    color: var(--primary-color) !important;
+    font-size: 1.4rem;
+    font-weight: 600;
+    text-decoration: none;
+}
+
+.post-link:hover {
+    color: var(--primary-hover) !important;
+    text-decoration: underline;
+}
+
+.post-meta {
+    color: var(--text-muted);
+    font-size: 0.85rem;
+    margin-bottom: 0.5rem;
+    display: block;
+}
+
+/* Conteúdo dos Artigos */
+.post-content {
+    color: var(--text-main);
+}
+
+.post-content h1, .post-content h2, .post-content h3 {
+    color: #ffffff;
+    margin-top: 2rem;
+    border-bottom: 1px solid var(--border-color);
+    padding-bottom: 0.3rem;
+}
+
+pre, code {
+    background-color: var(--code-bg) !important;
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    color: #e2e8f0 !important;
+}
+
+code {
+    padding: 0.2rem 0.4rem;
+    font-size: 0.9em;
+}
+
+pre code {
+    padding: 1rem;
+    display: block;
+    overflow-x: auto;
+}
+
+/* Rodapé */
+.site-footer {
+    background-color: var(--card-bg);
+    border-top: 1px solid var(--border-color);
+    color: var(--text-muted);
+    padding: 2rem 0;
+    margin-top: 4rem;
+}
+
+/* Responsividade e Layout */
+.wrapper {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
