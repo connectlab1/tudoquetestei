@@ -3,6 +3,19 @@ layout: default
 title: "Início"
 ---
 
+<div class="hero-section" style="padding: 2rem 0 3rem 0; border-bottom: 1px solid var(--border-color); margin-bottom: 2.5rem;">
+  <h1 style="font-size: 2.5rem; font-weight: 800; color: #ffffff; margin-bottom: 1rem;">
+    Laboratório <span style="color: var(--accent);">Tudo Que Testei</span> 🧪
+  </h1>
+  <p style="font-size: 1.15rem; color: var(--text-muted); max-width: 650px; line-height: 1.6;">
+    Um espaço prático onde documento testes de infraestrutura, scripts, ferramentas de código aberto, configurações de servidores e tecnologias do dia a dia. Sem rodeios, direto ao que funciona.
+  </p>
+</div>
+
+<h2 style="font-size: 1.4rem; font-weight: 600; color: var(--text-main); margin-bottom: 1.5rem;">
+  ⚡ Artigos e Testes Recentes
+</h2>
+
 <div class="posts-grid">
   {% for post in paginator.posts %}
     <article class="post-card">
