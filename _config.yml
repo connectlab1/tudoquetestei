@@ -2,12 +2,11 @@
 # Configurações Globais do Blog
 # ==========================================
 title: "Tudo Que Testei"
-email: "seu-email@exemplo.com"
+email: "contato@connectlab.ddns.net"
 description: "Laboratório técnico sobre desenvolvimento web, infraestrutura, automação e testes práticos."
-url: "https://connectlab1.github.io" # Substitua pelo seu domínio/username no GitHub
-baseurl: "/tudoquetestei"            # Nome do repositório (deixe "" se for o repositório principal username.github.io)
+url: "https://connectlab1.github.io"
+baseurl: "/tudoquetestei"
 
-# Configurações do Autor
 author:
   name: "Jean de Arruda"
   github: "connectlab1"
@@ -29,7 +28,7 @@ paginate_path: "/page:num/"
 # Formatação de Datas e Permalinks
 # ==========================================
 permalink: /:categories/:year/:month/:day/:title/
-timezone: America/Sao_Paulo
+timezone: "America/Sao_Paulo"
 
 # ==========================================
 # Plugins e Exclusões de Build
