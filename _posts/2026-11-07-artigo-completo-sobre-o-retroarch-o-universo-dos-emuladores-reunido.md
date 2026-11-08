@@ -29,7 +29,7 @@ O grande diferencial do RetroArch reside na quantidade de ferramentas avançadas
 
 * **Retro Achievements:** Integração nativa com a comunidade RetroAchievements, trazendo conquistas (troféus) modernas, desafios e placares para jogos clássicos de 8-bit, 16-bit e gerações posteriores.
 
-Rewind (Retrocesso) e Fast-Forward: Permite rebobinar a jogabilidade em tempo real caso o jogador cometa um erro (muito útil em jogos difíceis) ou acelerar cenas repetitivas.
+* **Rewind (Retrocesso) e Fast-Forward:** Permite rebobinar a jogabilidade em tempo real caso o jogador cometa um erro (muito útil em jogos difíceis) ou acelerar cenas repetitivas.
 
 * **Save States e Auto-Save:** Possibilidade de salvar e carregar o progresso a qualquer momento, além de recursos de salvamento automático ao fechar o aplicativo.
 
