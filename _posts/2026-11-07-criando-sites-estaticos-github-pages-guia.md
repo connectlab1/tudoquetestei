@@ -1,111 +1,114 @@
 ---
 layout: post
-title: "Criação de Sites Estáticos com GitHub Pages: Guia Prático e Testes de Performance"
-date: 2026-11-07 18:00:00 -0300
-categories: [GitHub Pages, Web, Infraestrutura]
-description: "Um passo a passo completo sobre como hospedar sites estáticos gratuitamente no GitHub Pages, configurar domínios customizados e otimizar a entrega."
+title: "Criação de Sites no GitHub com Jekyll: Guia Completo de Hospedagem e Automação"
+date: 2026-11-07 15:00:00 -0300
+categories: [GitHub Pages, Jekyll, Infraestrutura]
+description: "Um passo a passo completo sobre como criar, estruturar e publicar sites estáticos gratuitos no GitHub Pages utilizando o motor de geração Jekyll."
 ---
 
-Hospedar sites e documentações técnicas sem custos de servidor é um dos maiores benefícios do ecossistema de código aberto. O **GitHub Pages** surge como uma das soluções mais sólidas do mercado para esse fim, permitindo transformar repositórios Git em websites de alta disponibilidade servidos via CDN global.
+O **GitHub Pages** é uma das ferramentas mais eficientes e econômicas para desenvolvedores, criadores de conteúdo e profissionais de tecnologia que precisam colocar projetos no ar. Ao combinar a hospedagem nativa do GitHub com o motor estático **Jekyll**, você obtém um site de altíssima performance, segurança robusta e **custo zero de infraestrutura**.
 
-Neste artigo do **Tudo Que Testei**, documentamos o processo completo de criação, publicação e otimização de um site estático no GitHub Pages, analisando os limites de desempenho e os testes práticos da infraestrutura.
-
----
-
-## 1. Como Funciona a Infraestrutura do GitHub Pages
-
-O GitHub Pages processa repositórios públicos (e privados nos planos pagos) e entrega os arquivos estáticos (HTML, CSS, JavaScript, imagens) diretamente a partir de servidores edge da Fastly e Cloudflare.
-
-### Principais Características:
-* **Hospedagem gratuita:** Sem custos de largura de banda para a maioria dos casos de uso pessoal e de código aberto.
-* **HTTPS automático:** Certificados SSL/TLS fornecidos e renovados automaticamente via Let's Encrypt.
-* **Suporte Nativo a Geradores Estáticos:** Integração transparente com Jekyll e suporte a pipelines customizados via GitHub Actions para frameworks como Hugo, Astro, Next.js ou HTML puro.
+Neste artigo, abordamos a arquitetura do GitHub Pages, a estrutura de arquivos exigida pelo Jekyll e o fluxo prático para publicar seu site sem complicações.
 
 ---
 
-## 2. Passo a Passo: Publicando um Site Estático Simples
+## 1. Como Funciona a Hospedagem no GitHub Pages
 
-### Passo A: Criando o Repositório
-1. Acesse o GitHub e crie um novo repositório.
-2. Para um site de usuário/organização, utilize o padrão de nome: `<usuario>.github.io`.
-3. Para um site de projeto específico, escolha qualquer nome (ex: `meu-projeto`).
+O GitHub Pages serve arquivos estáticos (HTML, CSS, JS e mídias) diretamente dos repositórios do GitHub. Existem dois tipos principais de publicação:
 
-### Passo B: Adicionando a Estrutura Básica
-Crie um arquivo `index.html` na raiz do projeto com a seguinte estrutura mínima:
+* **Site de Perfil/Organização (`usuario.github.io`):** O repositório deve ter o nome exato do seu usuário no GitHub. O site fica publicado no domínio raiz (`https://usuario.github.io`).
+* **Site de Projeto (`usuario.github.io/nome-do-projeto`):** Pode ser ativado em qualquer repositório público. O site fica disponível como um subdiretório.
 
-```html
-<!DOCTYPE html>
-<html lang="pt-BR">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Meu Laboratório no GitHub Pages</title>
-  <style>
-    body {
-      font-family: system-ui, -apple-system, sans-serif;
-      background-color: #0d1117;
-      color: #c9d1d9;
-      max-width: 800px;
-      margin: 40px auto;
-      padding: 0 20px;
-      line-height: 1.6;
-    }
-    h1 { color: #58a6ff; }
-  </style>
-</head>
-<body>
-  <h1>🚀 Teste de Deploy via GitHub Pages</h1>
-  <p>Este site foi publicado diretamente a partir de um repositório no GitHub.</p>
-</body>
-</html>
+Como a entrega é baseada em arquivos estáticos distribuídos por CDN, não há backend dinâmico ou banco de dados para gerenciar, o que garante carregamento instantâneo e proteção contra a maioria das vulnerabilidades web.
+
+---
+
+## 2. Estrutura de Arquivos Compatível com Jekyll
+
+Para que o motor do Jekyll reconheça seu projeto e processe a paginação, os layouts e o conteúdo em Markdown, a raiz do seu repositório deve seguir a seguinte estrutura:
+
+```text
+meu-site/
+├── _config.yml         # Configurações globais (título, plugins, paginação)
+├── _posts/             # Artigos em Markdown (YYYY-MM-DD-titulo.md)
+├── _layouts/           # Templates HTML (default.html, post.html)
+├── assets/             # Arquivos CSS, SCSS, JS e imagens
+└── index.html          # Página principal (obrigatória para o jekyll-paginate)
 ```
 
-### Passo C: Habilitando o GitHub Pages
-1. No repositório, navegue até **Settings** > **Pages**.
-2. Na seção **Build and deployment**, selecione a origem (**Source**):
-   * **Deploy from a branch:** Escolha a branch `main` e a pasta `/ (root)`.
-3. Clique em **Save**. Em instantes, o link público do seu site estará disponível no topo da página de configurações.
+> **Atenção:** O arquivo da página principal deve ser obrigatoriamente **`index.html`** (e não `index.md`) se você utilizar o plugin nativo de paginação (`jekyll-paginate`), permitindo que a variável `paginator.posts` seja processada corretamente.
 
 ---
 
-## 3. Configurando Domínio Personalizado (CNAME)
+## 3. Configuração do `_config.yml`
 
-Para utilizar um domínio próprio (ex: `lab.seudominio.com`) no GitHub Pages:
+O arquivo `_config.yml` é o centro de controle do Jekyll. Abaixo está uma configuração base com suporte a paginação e URLs amigáveis:
 
-1. No painel de **Settings > Pages**, insira o seu domínio no campo **Custom domain**.
-2. No seu provedor de DNS (Cloudflare, Registro.br, GoDaddy, etc.), adicione os registros corretos:
+```yaml
+title: "Tudo Que Testei"
+description: "Laboratório prático de testes e infraestrutura"
+baseurl: "" # Deixe em branco para usuario.github.io ou coloque "/nome-do-projeto"
+url: "https://usuario.github.io"
 
-### Para Subdomínios (ex: `blog.seudominio.com`):
-| Tipo | Nome | Valor |
-| :--- | :--- | :--- |
-| **CNAME** | `blog` | `<usuario>.github.io.` |
+# Configuração de Paginação
+plugins:
+  - jekyll-paginate
 
-### Para Domínio Raiz (ex: `seudominio.com`):
-| Tipo | Nome | Valor |
-| :--- | :--- | :--- |
-| **A** | `@` | `185.199.108.153` |
-| **A** | `@` | `185.199.109.153` |
-| **A** | `@` | `185.199.110.153` |
-| **A** | `@` | `185.199.111.153` |
+paginate: 6
+paginate_path: "/page:num/"
 
----
-
-## 4. Testes e Resultados de Desempenho
-
-Realizamos testes de benchmarking em sites hospedados no GitHub Pages utilizando ferramentas de análise de performance (Lighthouse e PageSpeed Insights):
-
-* **Tempo de Resposta (TTFB):** Média de 25ms a 60ms graças ao caching da CDN global.
-* **Pontuação no Performance Lighthouse:** **100/100** para páginas estáticas bem otimizadas.
-* **Disponibilidade (Uptime):** Superior a 99.9% em testes contínuos de requisição.
-
----
-
-## Conclusão
-
-O **GitHub Pages** é uma das ferramentas mais eficientes e confiáveis para desenvolvedores e entusiastas de tecnologia que precisam publicar documentações, portfólios ou blogs estáticos sem complexidade de infraestrutura. Combinado com versionamento Git e automação por GitHub Actions, ele oferece um workflow moderno e extremamente ágil.
+# Markdown e Permalinks
+markdown: kramdown
+permalink: /:categories/:title/
 ```
-eof
 
-Geramos o novo artigo completo no arquivo `2026-11-07-criando-sites-estaticos-github-pages-guia.md`. Ele vem estruturado com metadados de Front Matter para o Jekyll, instruções passo a passo, tabelas e código formatado para o seu blog.
+---
 
-Gostaria de ajustar alguma categoria ou adicionar mais algum exemplo de configuração para este post?
+## 4. Criando um Artigo em Markdown
+
+Todos os artigos devem ficar dentro da pasta **`_posts/`**. O nome do arquivo deve seguir rigorosamente o padrão `AAAA-MM-DD-titulo-do-post.md`.
+
+No topo de cada arquivo, insira o cabeçalho **Front Matter** delimitado por três hifens (`---`):
+
+```markdown
+---
+layout: post
+title: "Como Configurar Servidores Web de Alta Performance"
+date: 2026-11-07 14:00:00 -0300
+categories: [Infraestrutura, Web]
+description: "Testes práticos de otimização de Nginx e Caddy para produção."
+---
+
+Aqui começa o conteúdo do seu artigo escrito em Markdown tradicional.
+
+### Vantagens dessa abordagem:
+1. Escreva em texto puro com formatação simples.
+2. Suporte nativo a blocos de código com *syntax highlighting*.
+3. Versionamento total pelo Git.
+```
+
+---
+
+## 5. Publicando no GitHub (Deploy Automático)
+
+Com a estrutura montada, basta enviar as alterações para o repositório remoto. O GitHub recompila o site automaticamente a cada `git push`:
+
+```bash
+# Adicionar as alterações ao controle de versão
+git add .
+
+# Criar o commit de alteração
+git commit -m "feat: adiciona artigo sobre criacao de sites no github"
+
+# Enviar para a branch principal
+git push origin main
+```
+
+### Ativando o GitHub Pages no Repositório
+1. Vá até o seu repositório no GitHub e clique na aba **Settings**.
+2. Na barra lateral esquerda, clique em **Pages**.
+3. Em **Build and deployment > Source**, selecione **Deploy from a branch** (ou **GitHub Actions** se usar um pipeline customizado).
+4. Em **Branch**, selecione `main` e a pasta `/ (root)`.
+5. Clique em **Save**.
+
+Em poucos segundos, o pipeline do GitHub processará o build do Jekyll e seu site estará publicado e acessível publicamente.
