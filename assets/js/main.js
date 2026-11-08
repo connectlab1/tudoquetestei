@@ -1,69 +1,53 @@
-document.addEventListener("DOMContentLoaded", function () {
-    console.log("🧪 Tudo Que Testei: JavaScript inicializado com sucesso!");
+document.addEventListener("DOMContentLoaded", () => {
+  // ==========================================
+  // 1. Botão "Copiar" para Blocos de Código
+  // ==========================================
+  const codeBlocks = document.querySelectorAll("pre > code");
 
-    // 1. Abrir links externos automaticamente em nova aba por segurança
-    const links = document.querySelectorAll("a");
-    const currentHost = window.location.hostname;
+  codeBlocks.forEach((codeBlock) => {
+    const pre = codeBlock.parentNode;
 
-    links.forEach(link => {
-        // Verifica se o link é externo
-        if (link.hostname && link.hostname !== currentHost) {
-            link.setAttribute("target", "_blank");
-            link.setAttribute("rel", "noopener noreferrer");
-        }
+    // Evita duplicar o botão caso o script execute mais de uma vez
+    if (pre.querySelector(".copy-code-btn")) return;
+
+    const button = document.createElement("button");
+    button.className = "copy-code-btn";
+    button.type = "button";
+    button.innerText = "Copiar";
+    button.setAttribute("aria-label", "Copiar código para a área de transferência");
+
+    button.addEventListener("click", () => {
+      navigator.clipboard.writeText(codeBlock.innerText).then(() => {
+        button.innerText = "Copiado!";
+        button.classList.add("copied");
+
+        setTimeout(() => {
+          button.innerText = "Copiar";
+          button.classList.remove("copied");
+        }, 2000);
+      }).catch((err) => {
+        console.error("Erro ao copiar código: ", err);
+        button.innerText = "Erro";
+        setTimeout(() => {
+          button.innerText = "Copiar";
+        }, 2000);
+      });
     });
 
-    // 2. Criar e injetar um botão dinâmico de "Voltar ao Topo"
-    const backToTopButton = document.createElement("button");
-    backToTopButton.innerHTML = "↑ Topo";
-    backToTopButton.id = "back-to-top";
+    pre.style.position = "relative";
+    pre.appendChild(button);
+  });
 
-    // Estilização inline rápida para o botão flutuante combinar com o tema escuro
-    Object.assign(backToTopButton.style, {
-        position: "fixed",
-        bottom: "20px",
-        right: "20px",
-        padding: "10px 14px",
-        backgroundColor: "#1e293b",
-        color: "#38bdf8",
-        border: "1px solid #334155",
-        borderRadius: "8px",
-        cursor: "pointer",
-        fontSize: "0.85rem",
-        fontWeight: "600",
-        boxShadow: "0 4px 12px rgba(0, 0, 0, 0.3)",
-                  transition: "all 0.2s ease",
-                  display: "none",
-                  zIndex: "999"
+  // ==========================================
+  // 2. Toggle do Menu Mobile
+  // ==========================================
+  const menuToggle = document.querySelector(".menu-toggle");
+  const navLinks = document.querySelector(".nav-links");
+
+  if (menuToggle && navLinks) {
+    menuToggle.addEventListener("click", () => {
+      navLinks.classList.toggle("active");
+      menuToggle.classList.toggle("active");
     });
-
-    document.body.appendChild(backToTopButton);
-
-    // Mostrar ou esconder o botão dependendo da rolagem da página
-    window.addEventListener("scroll", function () {
-        if (window.scrollY > 300) {
-            backToTopButton.style.display = "block";
-        } else {
-            backToTopButton.style.display = "none";
-        }
-    });
-
-    // Ação de clique para subir suavemente
-    backToTopButton.addEventListener("click", function () {
-        window.scrollTo({
-            top: 0,
-            behavior: "smooth"
-        });
-    });
-
-    // Efeito hover no botão via JS
-    backToTopButton.addEventListener("mouseenter", function () {
-        backToTopButton.style.backgroundColor = "#334155";
-        backToTopButton.style.borderColor = "#38bdf8";
-    });
-
-    backToTopButton.addEventListener("mouseleave", function () {
-        backToTopButton.style.backgroundColor = "#1e293b";
-        backToTopButton.style.borderColor = "#334155";
-    });
+  }
 });
