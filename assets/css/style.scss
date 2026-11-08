@@ -2,7 +2,7 @@
 ---
 
 /* ==========================================
-   Tudo Que Testei - Dark Theme SCSS
+   Tudo Que Testei - Dark Theme SCSS (Complete)
    ========================================== */
 
 :root {
@@ -15,6 +15,7 @@
   --accent: #38bdf8;
   --accent-hover: #0ea5e9;
   --accent-active: #2563eb;
+  --success: #10b981;
 }
 
 body {
@@ -199,12 +200,38 @@ body {
     overflow-x: auto;
     border: 1px solid var(--border-color);
     margin-bottom: 1.5rem;
+    position: relative;
 
     code {
       background: none;
       padding: 0;
       border: none;
       color: #e5e7eb;
+    }
+
+    .copy-code-btn {
+      position: absolute;
+      top: 0.5rem;
+      right: 0.5rem;
+      background: var(--bg-card);
+      color: var(--text-muted);
+      border: 1px solid var(--border-color);
+      border-radius: 4px;
+      padding: 0.25rem 0.6rem;
+      font-size: 0.75rem;
+      cursor: pointer;
+      transition: all 0.2s ease;
+
+      &:hover {
+        background: var(--border-color);
+        color: var(--text-main);
+      }
+
+      &.copied {
+        background: var(--success);
+        color: #ffffff;
+        border-color: var(--success);
+      }
     }
   }
 
