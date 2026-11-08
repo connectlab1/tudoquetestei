@@ -1,47 +1,49 @@
-# =================================================
-# Tudo Que Testei - Configurações Globais
-# =================================================
+# ==========================================
+# Configurações Globais do Blog
+# ==========================================
+title: "Tudo Que Testei"
+email: "seu-email@exemplo.com"
+description: "Laboratório técnico sobre desenvolvimento web, infraestrutura, automação e testes práticos."
+url: "https://connectlab1.github.io" # Substitua pelo seu domínio/username no GitHub
+baseurl: "/tudoquetestei"            # Nome do repositório (deixe "" se for o repositório principal username.github.io)
 
-# Informações Principais do Site
-title: Tudo Que Testei
-email: ""
-description: >-
-  Laboratório prático de documentação técnica, testes de sistemas, 
-  scripts, ferramentas de código aberto e desenvolvimento estático.
-baseurl: "/tudoquetestei" # Nome exato do repositório no GitHub
-url: "https://connectlab1.github.io" # Substitua pelo seu nome de usuário do GitHub se necessário
-
-# Informações do Autor
+# Configurações do Autor
 author:
-  name: Jean de Arruda
-  github: connectlab1
+  name: "Jean de Arruda"
+  github: "connectlab1"
 
-# Configurações de Idioma e Fuso Horário
-lang: pt-BR
-timezone: America/Sao_Paulo
-
-# Tema e Plugins
-theme: minima
-plugins:
-  - jekyll-feed
-  - jekyll-seo-tag
-
-# Configuração de Datas (Formato Brasileiro DD/MM/YYYY)
-minima:
-  date_format: "%d/%m/%Y"
-
-# Configurações do Compilador de Sass/SCSS
+# ==========================================
+# Compilação Sass / SCSS
+# ==========================================
 sass:
   sass_dir: assets/css
   style: compressed
 
-# Ignorar arquivos/pastas durante o build estático
+# ==========================================
+# Paginação (jekyll-paginate)
+# ==========================================
+paginate: 4
+paginate_path: "/page:num/"
+
+# ==========================================
+# Formatação de Datas e Permalinks
+# ==========================================
+permalink: /:categories/:year/:month/:day/:title/
+timezone: America/Sao_Paulo
+
+# ==========================================
+# Plugins e Exclusões de Build
+# ==========================================
+plugins:
+  - jekyll-paginate
+  - jekyll-feed
+  - jekyll-seo-tag
+
 exclude:
+  - README.md
+  - LICENSE
   - Gemfile
   - Gemfile.lock
-  - README.md
   - node_modules
-  - vendor/bundle/
-  - vendor/cache/
-  - vendor/gems/
-  - vendor/ruby/
+  - vendor/
+  - .github/
